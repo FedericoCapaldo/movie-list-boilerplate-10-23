@@ -8,7 +8,8 @@ fetch("http://www.omdbapi.com/?s=harry potter&apikey=adf1f2d7")
   .then((data) => {
 
     data.Search.forEach((result) => {
-
+      const output = Mustache.render(template.innerHTML, result);
+      results.insertAdjacentHTML("beforeend", output);
     })
 
   })
