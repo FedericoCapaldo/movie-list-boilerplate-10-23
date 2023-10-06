@@ -1,3 +1,5 @@
+const results = document.querySelector('#results');
+
 fetch("http://www.omdbapi.com/?s=harry potter&apikey=adf1f2d7")
   .then(response => response.json())
   .then((data) => {
@@ -15,7 +17,7 @@ fetch("http://www.omdbapi.com/?s=harry potter&apikey=adf1f2d7")
           </div>
         </div>
       `
-      console.log(movieCard)
+      results.insertAdjacentHTML('beforeend', movieCard); // Then, we insert it into the DOM
     })
 
   })
