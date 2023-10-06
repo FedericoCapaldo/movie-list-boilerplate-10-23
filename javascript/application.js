@@ -7,9 +7,8 @@ fetch("http://www.omdbapi.com/?s=harry potter&apikey=adf1f2d7")
   .then(response => response.json())
   .then((data) => {
 
-    data.Search.forEach((result) => {
-      const output = Mustache.render(template.innerHTML, result);
-      results.insertAdjacentHTML("beforeend", output);
-    })
+    const movieData = { "movies": data.Search }
+    const output = Mustache.render(template.innerHTML, movieData);
+    results.innerHTML = output;
 
   })
